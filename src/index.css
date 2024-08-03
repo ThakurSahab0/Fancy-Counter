@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  all: unset;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  height: 100vh;
+  background-image: radial-gradient(circle, #0099ff, #0066cc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  //background: linear-gradient(145deg, #f5f5f5, #e0e0e0); /* Soft gradient background */
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 400px;
+  height: 550px;
+  border-radius: 16px;
+  border: 1px solid #d0d0d0; /* Subtle border color */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  animation: fadeIn 1s ease-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card:focus-within {
+  border-color: #0066cc; /* Blue border on focus */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px #0066cc; /* Blue glow on focus */
+}
+
+.card--limit {
+  background-color: #f5f7fa; /* Light gray background for limit card */
+}
+
+.title {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; 
+  width: 200px; 
+  text-align: center;
+  line-height: 1.5; 
+  font-weight: 700; 
+  font-size: 35px; 
+  margin-top: 60px;
+  color: #333; 
+}
+
+.count {
+  color: #333; 
+  font-size: 160px; 
+  font-weight: 700; 
+  margin-top: 10px;
+  letter-spacing: -2px; /* Slightly reduced spacing for a compact look */
+}
+
+.reset-btn {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover,
+.reset-btn:focus {
+  opacity: 1;
+  color: #0066cc; /* Blue color on hover */
+}
+
+.reset-btn-icon {
+  color: #0066cc; /* Blue color for reset icon */
+  height: 40px;
+  width: 40px;
+}
+
+.button-container {
+  background: linear-gradient(135deg, #0066cc, #0099ff); /* Blue gradient background */
+  height: 116px;
+  width: 100%;
+  margin-top: auto;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  display: flex;
+}
+
+.count-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 16px; /* Match border radius with the card */
+}
+
+.count-btn:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.count-btn:hover,
+.count-btn:focus {
+  background: #005bb5; /* Darker blue on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.count-btn:active {
+  animation: click-effect 0.5s ease-in-out;
+  transform: translateY(0);
+}
+
+@keyframes click-effect {
+  0% {
+    transform: scale(1);
+    background: #005bb5;
+  }
+  50% {
+    transform: scale(0.9);
+    background: #003f7d;
+  }
+  100% {
+    transform: scale(1);
+    background: #005bb5;
+  }
+}
+
+.count-btn--plus {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.count-btn-icon {
+  color: #ffffff; /* White icon color */
+  opacity: 0.9;
+  height: 40px;
+  width: 40px;
+}
+
+/* Adjusted media query for screens greater than 110% */
+@media (max-width: 524px) or (max-height: 676px) {
+  .card {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .title {
+    margin-top: 100px;
+  }
+
+  .buttons {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* Button hover effect to be square */
+.count-btn {
+  border-radius: 16px; /* Default rounded corners */
+}
+
+.count-btn:hover,
+.count-btn:focus {
+  border-radius: 0; /* Square corners on hover */
+  background: #005bb5; /* Darker blue on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.count-btn:active {
+  animation: click-effect 0.5s ease-in-out;
+  transform: translateY(0);
+}
